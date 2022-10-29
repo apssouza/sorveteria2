@@ -27,10 +27,12 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 500));
+        setTitle("Página Principal");
+        setMaximumSize(new java.awt.Dimension(700, 600));
         setMinimumSize(new java.awt.Dimension(600, 500));
         setPreferredSize(new java.awt.Dimension(600, 500));
         getContentPane().setLayout(null);
@@ -45,13 +47,19 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(260, 300, 76, 27);
+        jButton1.setBounds(260, 300, 75, 25);
+
+        jLabel2.setFont(new java.awt.Font("Sylfaen", 0, 10)); // NOI18N
+        jLabel2.setText("Clique no botão acima para acessar nosso menu");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(200, 360, 202, 14);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Bem - Vindo.png"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 600, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -96,6 +104,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
