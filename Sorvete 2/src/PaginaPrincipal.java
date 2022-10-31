@@ -47,7 +47,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(260, 300, 75, 25);
+        jButton1.setBounds(260, 300, 77, 27);
 
         jLabel2.setFont(new java.awt.Font("Sylfaen", 0, 10)); // NOI18N
         jLabel2.setText("Clique no botão acima para acessar nosso menu");

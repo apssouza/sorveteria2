@@ -1,3 +1,6 @@
+
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,12 +34,14 @@ public class Pedido extends javax.swing.JFrame {
         tblPedidos = new javax.swing.JTable();
         btnSalvar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        txtPreco = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cbmQuant = new javax.swing.JComboBox<>();
+        cbmSabor = new javax.swing.JComboBox<>();
+        cbmAcomp = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -52,56 +57,69 @@ public class Pedido extends javax.swing.JFrame {
 
         tblPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+                {null, null}
             },
             new String [] {
-                "Sabor", "Quantidade de bolas", "Acompanhamento", "Preço"
+                "Sabor", "Acompanhamento"
             }
         ));
         tblPedidos.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblPedidos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 440, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 440, 100));
 
+        btnSalvar.setFont(new java.awt.Font("Ravie", 0, 12)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(101, 53, 15));
         btnSalvar.setText("Adicionar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
+        btnExcluir.setForeground(new java.awt.Color(101, 53, 15));
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, -1, -1));
+        getContentPane().add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, -1));
+
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, 70, -1));
 
         jLabel2.setText("Qual acompanhamento?");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 11)); // NOI18N
         jLabel3.setText("Quantas bolas?");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, 10));
 
         jLabel7.setText("Quais sabores?");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbmQuant.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        cbmQuant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbmQuantActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 110, -1));
+        getContentPane().add(cbmQuant, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 110, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abacaxi ao vinho", "Baunilha", "Chocolate", "Creme com passas", "Flocos", "Morango", "Nata goiaba" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 110, -1));
+        cbmSabor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abacaxi ao vinho", "Baunilha", "Chocolate", "Creme com passas", "Flocos", "Morango", "Nata goiaba" }));
+        getContentPane().add(cbmSabor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 130, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amendoim", "Calda de chocolate", "Calda de Kiwi", "Calda de maçã verde", "Calda de morango", "Gotas de chocolate" }));
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 110, -1));
+        cbmAcomp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amendoim", "Calda de chocolate", "Calda de Kiwi", "Calda de maçã verde", "Calda de morango", "Gotas de chocolate" }));
+        getContentPane().add(cbmAcomp, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 120, -1));
+
+        jLabel6.setFont(new java.awt.Font("Ravie", 0, 10)); // NOI18N
+        jLabel6.setText("Preço final");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img3.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
@@ -114,32 +132,46 @@ public class Pedido extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        String codigo = txtCodigo.getText();
-        String nomeProduto = txtProduto.getText();
-        String valor = txtValor.getText();
+
+        String sabor = (String) cbmSabor.getSelectedItem();
+        String acomp = (String) cbmAcomp.getSelectedItem();
+        
+         String preco;
+        
+        if (cbmQuant.getSelectedItem() == "1") {
+            preco = "R$2,00";
+        } else if(cbmQuant.getSelectedItem() == "2"){
+             preco = "R$4,00";
+        } else if(cbmQuant.getSelectedItem() == "3"){
+             preco = "R$6,00";
+        } else {
+             preco = "R$7,50";
+        }
+        
+        txtPreco.setText(preco);
 
         DefaultTableModel tabelaProduto = (DefaultTableModel) tblPedidos.getModel();
 
         Object[] novoProduto = new Object[]{
-            codigo,
-            nomeProduto,
-            valor
+            sabor,
+            acomp
         };
 
         tabelaProduto.addRow(novoProduto);
-
-        txtCodigo.setText("");
-        txtProduto.setText("");
-        txtValor.setText("");
+        
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         ((DefaultTableModel) tblPedidos.getModel()).removeRow(0);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cbmQuantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmQuantActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cbmQuantActionPerformed
+
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
+        
+    }//GEN-LAST:event_txtPrecoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,16 +211,18 @@ public class Pedido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> cbmAcomp;
+    private javax.swing.JComboBox<String> cbmQuant;
+    private javax.swing.JComboBox<String> cbmSabor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPedidos;
+    private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 }
